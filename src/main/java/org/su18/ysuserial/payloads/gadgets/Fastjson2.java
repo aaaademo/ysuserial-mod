@@ -1,6 +1,6 @@
 package org.su18.ysuserial.payloads.gadgets;
 
-import net.sf.json.JSONArray;
+import com.alibaba.fastjson.JSONArray;
 import org.su18.ysuserial.payloads.ObjectPayload;
 import org.su18.ysuserial.payloads.annotation.Authors;
 import org.su18.ysuserial.payloads.annotation.Dependencies;

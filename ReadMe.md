@@ -7,6 +7,10 @@
   <img src="https://img.shields.io/github/license/su18/ysoserial?style=flat-square" />
 </p>
 
+## update-2024-04-23
+
+ - 添加 `Fastjson1` / `Fastjson2` 反序列化链
+
 项目支持利用链展示：
 
 ```text

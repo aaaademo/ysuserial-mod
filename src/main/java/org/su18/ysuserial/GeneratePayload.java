@@ -236,4 +236,5 @@ public class GeneratePayload {
 		System.err.println("java -jar ysoserial-[version]-su18-all.jar -g [payload] -p '[command]' -i -f evil.ser");
 
 	}
+
 }
