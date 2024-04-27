@@ -200,4 +200,10 @@ fabric.properties
 
 target/
 
+
+# self add
 *.iml
+*.bin
+/src/test/
+/lib/tongweb6-libs/**/*.jar
+/lib/tongweb7-libs/**/*.jar

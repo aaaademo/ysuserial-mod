@@ -42,6 +42,7 @@ public @interface Authors {
 
 	String ARTSPLOIT = "artsploit";
     String Y4ER = "Y4er";
+    String DEMO = "ademo";
 
     String[] value() default {};
 

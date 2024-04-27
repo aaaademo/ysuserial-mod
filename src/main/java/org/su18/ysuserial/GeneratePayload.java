@@ -167,6 +167,11 @@ public class GeneratePayload {
 
 			OutputStream out;
 
+			if (payloadType.contains("XStream")) {
+				System.out.print(object);
+				System.exit(0);
+			}
+
 			if (WRITE_FILE) {
 				out = new FileOutputStream(FILE);
 			} else {
