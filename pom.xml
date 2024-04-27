@@ -4,11 +4,11 @@
 
     <groupId>ysuserial</groupId>
     <artifactId>ysuserial</artifactId>
-    <version>1.5-su18</version>
+    <version>su18-mod-1.6</version>
     <packaging>jar</packaging>
 
     <name>ysuserial</name>
-    <url>https://su18.org</url>
+    <url>https://demo.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,7 +38,9 @@
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-<!--                    <descriptor>assembly.xml</descriptor>-->
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
                     <finalName>${project.artifactId}-${project.version}-all</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
