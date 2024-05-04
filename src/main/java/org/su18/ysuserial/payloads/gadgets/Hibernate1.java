@@ -21,6 +21,7 @@ import org.su18.ysuserial.payloads.ObjectPayload;
 import org.su18.ysuserial.payloads.annotation.Authors;
 import org.su18.ysuserial.payloads.util.Gadgets;
 import org.su18.ysuserial.payloads.util.JavaVersion;
+import org.su18.ysuserial.payloads.util.PayloadRunner;
 import org.su18.ysuserial.payloads.util.Reflections;
 
 
@@ -42,6 +43,9 @@ import org.su18.ysuserial.payloads.util.Reflections;
  */
 @Authors({Authors.MBECHLER})
 public class Hibernate1 implements ObjectPayload<Object>, DynamicDependencies {
+	public static void main(final String[] args) throws Exception {
+		PayloadRunner.run(Hibernate1.class, args);
+	}
 
 	public static boolean isApplicableJavaVersion() {
 		return JavaVersion.isAtLeast(7);
