@@ -43,6 +43,7 @@ public @interface Authors {
 	String ARTSPLOIT = "artsploit";
     String Y4ER = "Y4er";
     String DEMO = "ademo";
+    String QI4L = "QI4L";
 
     String[] value() default {};
 

