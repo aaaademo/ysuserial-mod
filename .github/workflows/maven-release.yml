@@ -1,0 +1,52 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name: maven-release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+    - name: Add local jar package
+      run: |
+        mvn install:install-file -Dfile=lib/tomcat-websocket-9.0.62.jar -DgroupId=org.apache.tomcat -DartifactId=tomcat-websocket -Dversion=9.0.62 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/resin.jar -DgroupId=com.caucho -DartifactId=resin -Dversion=4.0.65 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/javax.interceptor-api-3.1.jar -DgroupId=javax.interceptor -DartifactId=javax.interceptor-api -Dversion=3.1 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/javax.websocket-api-1.1.jar -DgroupId=javax.websocket -DartifactId=javax.websocket-api -Dversion=1.1 -Dpackaging=jar
+    - name: Install dependencies
+      run: mvn install
+    - name: Set environment variable
+      run: |
+        export PROFILE=jdk6
+    - name: Build with Maven
+      run: mvn -P$PROFILE package  --file pom.xml
+    - run: mkdir staging && cp target/*.jar staging
+    
+    - name: Set Release version env variable
+      run: |
+        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+    - name: "Build & test"
+      run: |
+        echo "done!"
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ env.RELEASE_VERSION }}"
+        prerelease: false
+        title: "Release ${{ env.RELEASE_VERSION }}"
+        files: |
+          staging/*.jar
+          
