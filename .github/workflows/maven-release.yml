@@ -18,14 +18,15 @@ jobs:
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-    - name: Install dependencies
-      run: mvn install
+
     - name: Add local jar package
       run: |
         mvn install:install-file -Dfile=/home/runner/work/ysuserial-mod/ysuserial-mod/lib/tomcat-websocket-9.0.62.jar -DgroupId=org.apache.tomcat -DartifactId=tomcat-websocket -Dversion=9.0.62
         mvn install:install-file -Dfile=/home/runner/work/ysuserial-mod/ysuserial-mod/lib/resin.jar -DgroupId=com.caucho -DartifactId=resin -Dversion=4.0.65
         mvn install:install-file -Dfile=/home/runner/work/ysuserial-mod/ysuserial-mod/lib/javax.interceptor-3.1.jar -DgroupId=javax.interceptor -DartifactId=javax.interceptor-api -Dversion=3.1
         mvn install:install-file -Dfile=/home/runner/work/ysuserial-mod/ysuserial-mod/lib/javax.websocket-api-1.1.jar -DgroupId=javax.websocket -DartifactId=javax.websocket-api -Dversion=1.1
+    - name: Install dependencies
+      run: mvn install
     - name: Set environment variable
       run: |
         export PROFILE=jdk6
