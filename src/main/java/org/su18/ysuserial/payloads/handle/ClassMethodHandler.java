@@ -95,6 +95,11 @@ public class ClassMethodHandler {
 			return;
 		}
 
+		// TongWeb Listen 内存马
+		if (className.contains("TongWebLMSFromThread")) {
+			return;
+		}
+
 		// 其他的进入下一段处理逻辑
 		if (StringUtils.isNotEmpty(type)) {
 			insertKeyMethod(ctClass, type, method);

