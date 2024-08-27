@@ -115,6 +115,13 @@
             <version>1.4.11</version>
         </dependency>
 
+<!--        fanraun-->
+        <dependency>
+            <groupId>com.fr</groupId>
+            <artifactId>fine-third</artifactId>
+            <version>10</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

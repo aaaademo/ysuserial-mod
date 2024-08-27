@@ -1,12 +1,18 @@
 # [  ysuserial-mod  ]
 
 
+## update-2024-08-27
+
+ - 添加 finereport jackjson gadget
+
+```bash
+mvn install:install-file -Dfile=lib/finereport/fine-third-10.0.jar -DgroupId=com.fr -DartifactId=fine-third -Dversion=10 -Dpackaging=jar
+```
 
 ## update-2024-05-04
 
  - 添加 `cb 1.6.1` 反序列化链
  - 添加 `cc k3/4/5` 反序列化链
-
 
 ## update-2024-04-27
 
