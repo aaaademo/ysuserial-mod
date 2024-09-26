@@ -1,5 +1,15 @@
 # [  ysuserial-mod  ]
 
+## update-2024-09-26
+
+ - Add FineReport FineDruidHsqlLocal gadget
+
+```text
+ysu_EX-TomcatEcho_FineDruidHsqlLocal
+
+// 配合 JEG/JMG 覆盖大部分中间件回显链
+-g FineDruidHsqlLocal -p 'LF-/path/to/echo.class'
+```
 
 ## update-2024-08-27
 
