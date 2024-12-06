@@ -34,7 +34,7 @@ jobs:
       run: |
         export PROFILE=jdk6
     - name: Build with Maven
-      run: mvn -P$PROFILE package  --file pom.xml
+      run: mvn clean package -Pjdk6
     - run: mkdir staging && cp target/*.jar staging
     
     - name: Set Release version env variable
