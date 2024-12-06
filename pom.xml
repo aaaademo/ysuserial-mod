@@ -138,6 +138,11 @@
             <artifactId>sparkpatch</artifactId>
             <version>V9.5.2.4703.002</version>
         </dependency>
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>javax.ejb-api</artifactId>
+            <version>3.2.2</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>

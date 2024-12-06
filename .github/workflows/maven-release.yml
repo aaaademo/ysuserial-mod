@@ -30,11 +30,8 @@ jobs:
         mvn install:install-file -Dfile=lib/ejb/res/V9.5.2.4703.002.jar  -DgroupId=bes.ejb -DartifactId=sparkpatch -Dversion=V9.5.2.4703.002 -Dpackaging=jar
     - name: Install dependencies
       run: mvn install
-    - name: Set environment variable
-      run: |
-        export PROFILE=jdk6
     - name: Build with Maven
-      run: mvn clean package -Pjdk6
+      run: mvn clean package -Papache-el
     - run: mkdir staging && cp target/*.jar staging
     
     - name: Set Release version env variable
