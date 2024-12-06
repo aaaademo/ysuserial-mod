@@ -1,7 +1,6 @@
 package org.su18.ysuserial.payloads.templates.echo;
 
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 

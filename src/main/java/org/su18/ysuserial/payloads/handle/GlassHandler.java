@@ -120,7 +120,7 @@ public class GlassHandler {
 		// 为 Struts2ActionMS 额外处理，防止框架找不到的情况
 		insertFieldIfExists(ctClass, "thisClass", "public static String thisClass = \"" + base64Encode(ctClass.toBytecode()) + "\";");
 
-		shrinkBytes(ctClass);
+//		shrinkBytes(ctClass);
 		byteCodes = ctClass.toBytecode();
 
 		if (HIDE_MEMORY_SHELL) {

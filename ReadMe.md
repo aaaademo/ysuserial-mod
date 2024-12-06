@@ -19,6 +19,12 @@ ysu_FineDruidHsqlLocal_EX-TomcatEcho
 -g FineDruidHsqlLocal -p 'LF-/path/to/echo.class'
 ```
 
+```bash
+mvn install:install-file -Dfile=lib/ejb/res/org.mozilla.rhino_1.6.7.jar  -DgroupId=com.mozilla -DartifactId=rhino -Dversion=1.6.7 -Dpackaging=jar
+mvn install:install-file -Dfile=lib/ejb/res/V9.5.2.4703.002.jar  -DgroupId=bes.ejb -DartifactId=sparkpatch -Dversion=V9.5.2.4703.002 -Dpackaging=jar
+
+```
+
 ## update-2024-08-27
 
  - 添加 finereport jackjson gadget

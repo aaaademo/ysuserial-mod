@@ -209,3 +209,4 @@ target/
 /lib/ejb/lib/*
 /lib/ejb/patch/*
 /lib/finereport/fine-third-10.0-all.jar
+/bes.ser

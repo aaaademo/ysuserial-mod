@@ -4,7 +4,7 @@
 
     <groupId>ysuserial</groupId>
     <artifactId>ysuserial</artifactId>
-    <version>su18-mod-1.6</version>
+    <version>su18-mod-1.7</version>
     <packaging>jar</packaging>
 
     <name>ysuserial</name>
@@ -125,6 +125,18 @@
             <groupId>com.fr</groupId>
             <artifactId>fine-third</artifactId>
             <version>10-all</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mozilla</groupId>
+            <artifactId>rhino</artifactId>
+            <version>1.6.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>bes.ejb</groupId>
+            <artifactId>sparkpatch</artifactId>
+            <version>V9.5.2.4703.002</version>
         </dependency>
 
         <dependency>

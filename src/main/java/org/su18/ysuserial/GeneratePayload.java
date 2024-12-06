@@ -181,7 +181,7 @@ public class GeneratePayload {
 			}
 			if (payloadType.contains("BESRhino2")) {
 				byte[] outbytes = BESSerialize.serialize(object);
-				ObjectPayload.Utils.releasePayload(payload, object);
+//				ObjectPayload.Utils.releasePayload(payload, object);
 				out.write(outbytes);
 				out.flush();
 				out.close();
