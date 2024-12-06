@@ -25,6 +25,9 @@ jobs:
         mvn install:install-file -Dfile=lib/resin.jar -DgroupId=com.caucho -DartifactId=resin -Dversion=4.0.65 -Dpackaging=jar
         mvn install:install-file -Dfile=lib/javax.interceptor-api-3.1.jar -DgroupId=javax.interceptor -DartifactId=javax.interceptor-api -Dversion=3.1 -Dpackaging=jar
         mvn install:install-file -Dfile=lib/javax.websocket-api-1.1.jar -DgroupId=javax.websocket -DartifactId=javax.websocket-api -Dversion=1.1 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/finereport/fine-third-10.0.jar -DgroupId=com.fr -DartifactId=fine-third -Dversion=10 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/ejb/res/org.mozilla.rhino_1.6.7.jar  -DgroupId=com.mozilla -DartifactId=rhino -Dversion=1.6.7 -Dpackaging=jar
+        mvn install:install-file -Dfile=lib/ejb/res/V9.5.2.4703.002.jar  -DgroupId=bes.ejb -DartifactId=sparkpatch -Dversion=V9.5.2.4703.002 -Dpackaging=jar
     - name: Install dependencies
       run: mvn install
     - name: Set environment variable
