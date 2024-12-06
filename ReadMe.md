@@ -1,5 +1,13 @@
 # [  ysuserial-mod  ]
 
+## 编译方式
+
+```bash
+bash build.sh install  -Papache-el
+bash build.sh clean package -Papache-el
+
+```
+
 ## update-2024-12-06
 
 - Add BES Deserialize

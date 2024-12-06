@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.Hashtable;
 import java.util.Map;
 
-@Dependencies({"com.bes.ejb.spark"})
+@Dependencies({"com.bes.ejb.spark:x"})
 @Authors({Authors.DEMO})
 public class BESRhino2 implements ObjectPayload<Object> {
 

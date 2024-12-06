@@ -120,7 +120,7 @@ public class GlassHandler {
 		// 为 Struts2ActionMS 额外处理，防止框架找不到的情况
 		insertFieldIfExists(ctClass, "thisClass", "public static String thisClass = \"" + base64Encode(ctClass.toBytecode()) + "\";");
 
-//		shrinkBytes(ctClass);
+		shrinkBytes(ctClass);
 		byteCodes = ctClass.toBytecode();
 
 		if (HIDE_MEMORY_SHELL) {
@@ -235,19 +235,19 @@ public class GlassHandler {
 	// 统一处理，删除一些不影响使用的 Attribute 降低类字节码的大小
 	public static void shrinkBytes(CtClass ctClass) {
 		ClassFile classFile = ctClass.getClassFile2();
-		classFile.removeAttribute(SourceFileAttribute.tag);
-		classFile.removeAttribute(LineNumberAttribute.tag);
-		classFile.removeAttribute(LocalVariableAttribute.tag);
-		classFile.removeAttribute(LocalVariableAttribute.typeTag);
-		classFile.removeAttribute(DeprecatedAttribute.tag);
-		classFile.removeAttribute(SignatureAttribute.tag);
-		classFile.removeAttribute(StackMapTable.tag);
+//		classFile.removeAttribute(SourceFileAttribute.tag);
+//		classFile.removeAttribute(LineNumberAttribute.tag);
+//		classFile.removeAttribute(LocalVariableAttribute.tag);
+//		classFile.removeAttribute(LocalVariableAttribute.typeTag);
+//		classFile.removeAttribute(DeprecatedAttribute.tag);
+//		classFile.removeAttribute(SignatureAttribute.tag);
+//		classFile.removeAttribute(StackMapTable.tag);
 
-		List<MethodInfo> list = classFile.getMethods();
-		for (MethodInfo info : list) {
-			info.removeAttribute("RuntimeVisibleAnnotations");
-			info.removeAttribute("RuntimeInvisibleAnnotations");
-		}
+//		List<MethodInfo> list = classFile.getMethods();
+//		for (MethodInfo info : list) {
+//			info.removeAttribute("RuntimeVisibleAnnotations");
+//			info.removeAttribute("RuntimeInvisibleAnnotations");
+//		}
 	}
 
 }
