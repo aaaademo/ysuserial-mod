@@ -53,7 +53,7 @@ public class PayloadRunner {
     }
 
     private static String getFirstExistingFile(String... files) {
-        return "open -a /System/Applications/Calculator.app";
+        return "open -a /System/Applications/Calculator.app/Contents/MacOS/Calculator";
 //        for (String path : files) {
 //            if (new File(path).exists()) {
 //                return path;

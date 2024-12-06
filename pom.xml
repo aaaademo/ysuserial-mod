@@ -120,7 +120,7 @@
             <version>1.4.11</version>
         </dependency>
 
-<!--        fanraun-->
+<!--        fanruan-->
         <dependency>
             <groupId>com.fr</groupId>
             <artifactId>fine-third</artifactId>

@@ -96,6 +96,9 @@ public class Utils {
 		shrinkBytes(ctClass);
 		byte[] classBytes = ctClass.toBytecode();
 
+		// 写入前将 classBytes 中的类标识设为 JDK 1.6 的版本号
+		classBytes[7] = 49;
+
 		// 保存内存马文件
 		if (GEN_MEM_SHELL) {
 			if (StringUtils.isNotEmpty(GEN_MEM_SHELL_FILENAME)) {

@@ -62,7 +62,7 @@ public class Config {
 	public static String HEADER_KEY = "Referer";
 
 	// 用于额外校验的 Http Header 值，默认值 https://su18.org/
-	public static String HEADER_VALUE = "https://bt.baidu.com/";
+	public static String HEADER_VALUE = "https://www.baidu.com/";
 
 	// 是否生成内存马文件
 	public static Boolean GEN_MEM_SHELL = false;

@@ -1,11 +1,19 @@
 # [  ysuserial-mod  ]
 
+## update-2024-12-06
+
+- Add BES Deserialize
+
+```bash
+ysu_BESRhino2_EX-BESEcho
+```
+
 ## update-2024-09-26
 
  - Add FineReport FineDruidHsqlLocal gadget
 
 ```text
-ysu_EX-TomcatEcho_FineDruidHsqlLocal
+ysu_FineDruidHsqlLocal_EX-TomcatEcho
 
 // 配合 JEG/JMG 覆盖大部分中间件回显链
 -g FineDruidHsqlLocal -p 'LF-/path/to/echo.class'
@@ -31,7 +39,6 @@ mvn install:install-file -Dfile=lib/finereport/fine-third-10.0.jar -DgroupId=com
 ## update-2024-04-23
 
  - 添加 `Fastjson1` / `Fastjson2` 反序列化链
-
 
 # TODO
 - [ ] CommonsBeanutils1183TongWeb 反序列化链
